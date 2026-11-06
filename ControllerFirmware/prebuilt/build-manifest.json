@@ -1,0 +1,13 @@
+{
+  "artifact": "controller_merged.bin",
+  "firmware_version": "1.5.0",
+  "controller_version": "1.6.0",
+  "flash_offset": "0x0",
+  "built_from_commit": "db4bd4f18392f663411d64ecdbde52376dce8dea",
+  "built_at": "2026-10-31T16:26:40.651523+00:00",
+  "env": "controller",
+  "license_pubkey_prefixes": [
+    "04f1ceb09456b9a6",
+    "0415c23c9830b4ce"
+  ]
+}
