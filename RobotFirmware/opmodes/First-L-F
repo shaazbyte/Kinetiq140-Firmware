@@ -1,0 +1,51 @@
+#include "NRL.h"
+#include "LineActions.h"
+
+static HexaDCMotor leftMotor
+{
+    { .dirPin = MOTOR_L_DIR, .pwmPin = MOTOR_L_PWM }
+};
+
+static HexaDCMotor rightMotor
+{
+    { .dirPin = MOTOR_R_DIR, .pwmPin = MOTOR_R_PWM, .flipped = true }
+};
+
+static HexaLineArray line{ hexaLineConfig() };
+
+static TankDrive drive(leftMotor, rightMotor);
+static LineActions lineActions(drive, line);
+
+class KinetiqTeleOP : public NRLOpMode 
+{
+    public:
+        void init() override 
+        {
+            leftMotor.begin();
+            rightMotor.begin();
+            line.begin();
+        }
+
+        void start() override 
+        {
+            lineActions.ClearRoute();
+            runAction(
+                lineActions.auto_()
+                .followToEnd()
+                .build()
+            );
+
+        }
+
+        void loop() override 
+        {
+            // MAT KAR LALA MAT KAR
+        }
+
+        void stop() override 
+        {
+            drive.stop();
+        }
+};
+
+RegisterOpMode(KinetiqTeleOP, "Test1", AUTO);
