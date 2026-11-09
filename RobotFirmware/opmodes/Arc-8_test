@@ -48,4 +48,4 @@ class KinetiqTeleOP : public NRLOpMode
         }
 };
 
-RegisterOpMode(KinetiqTeleOP, "Test1", AUTO);
+RegisterOpMode(KinetiqTeleOP, "ARC-8_Test", AUTO);
